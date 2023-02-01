@@ -1,0 +1,41 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: api_name-api-deployment
+  namespace: api_name
+spec:
+  selector:
+    matchLabels:
+      app: api_name-api
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "api_name"
+        dapr.io/app-port: "80"
+        dapr.io/log-level: "debug"
+        dapr.io/sidecar-liveness-probe-delay-seconds: "10"
+        dapr.io/sidecar-readiness-probe-delay-seconds: "10"
+        dapr.io/config: "tracing"
+        linkerd.io/inject: enabled
+    spec:
+      containers:
+        - name: api_name-api
+          env: 
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Development"
+          - name: AWS_ACCESS_KEY
+            valueFrom: 
+              secretKeyRef:
+                name: access 
+                key: AWS_ACCESS_KEY
+          - name: AWS_SECRET_KEY
+            valueFrom: 
+              secretKeyRef:
+                name: secret 
+                key: AWS_SECRET_KEY 
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m" 
