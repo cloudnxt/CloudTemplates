@@ -95,7 +95,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 
-    Console.WriteLine(app.Configuration.GetValue<string>("orderId1"));
+   // Console.WriteLine(app.Configuration.GetValue<string>("orderId1"));
 }
 
 app.UseHttpsRedirection();

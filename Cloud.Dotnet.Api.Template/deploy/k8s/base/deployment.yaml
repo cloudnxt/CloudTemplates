@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api_name-deployment
-  namespace: cloudnxt
+  name: api_name
+  namespace: api_name
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api_name-api
+      app: api_name
   template:
     metadata:
       labels:
-        app: api_name-api
+        app: api_name
     spec:
       containers:
-      - name: api_name-api
+      - name: api_name
         image: rohitrustagi007/api_name:latest
         imagePullPolicy: Always
         env: 

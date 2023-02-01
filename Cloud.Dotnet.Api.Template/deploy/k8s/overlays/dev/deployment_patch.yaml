@@ -1,12 +1,12 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: api_name-api-deployment
+  name: api_name
   namespace: api_name
 spec:
   selector:
     matchLabels:
-      app: api_name-api
+      app: api_name
   replicas: 1
   template:
     metadata:
@@ -21,7 +21,7 @@ spec:
         linkerd.io/inject: enabled
     spec:
       containers:
-        - name: api_name-api
+        - name: api_name
           env: 
           - name: ASPNETCORE_ENVIRONMENT
             value: "Development"

@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: api_name-ingress
+  name: api_name
   namespace: api_name
   annotations: 
       # kubernetes.io/ingress.class: nginx
@@ -9,7 +9,7 @@ metadata:
       nginx.ingress.kubernetes.io/proxy-body-size: 8m
       nginx.org/mergeable-ingress-type: "minion"
   labels:
-    name: api_name-ingress
+    name: api_name
 spec:
   ingressClassName: nginx
   rules:
@@ -20,7 +20,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: api_name-api-cluster-ip
+            name: api_name
             port: 
               number: 80
 

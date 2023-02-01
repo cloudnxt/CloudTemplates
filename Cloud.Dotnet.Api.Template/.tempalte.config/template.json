@@ -1,10 +1,10 @@
 {
     "$schema": "http://json.schemastore.org/template",
     "author": "iamsourabh.in",
-    "classifications": ["Common", "Webapi"],
+    "classifications": ["Common", "WebAPI"],
     "identity": "Cloud.Dotnet.Api.Template.Api",
     "name": "Cloud.Dotnet.Api.Template",
-    "shortName": "cloudnetapi",
+    "shortName": "cloudnxtdotnetapi",
     "sourceName": "Cloud.Dotnet.Api.Template",
     "tags": {
         "language": "C#",
@@ -15,6 +15,7 @@
             "type": "parameter",
             "dataType": "string",
             "defaultValue": "cloudnxt",
+            "isRequired": true,
             "replaces": "api_name"
         }
     }
